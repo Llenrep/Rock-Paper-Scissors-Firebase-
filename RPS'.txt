@@ -1,0 +1,29 @@
+For the rock paper scissors game, The user is aware of their choice but the opponent is aware of the original users choice
+You might have to rotate between sessionstorage and localstorage or actually just use sessionstorage. 
+
+The idea behind the groupchat thing where you can actually talk to your opponent, thats crazy, but possible?
+The way I see it, You would create an empty div with margins, rounded edges, and a submit option where you can
+type a personally contructed message.  Week 4 Day 2 Lesson 15/16 will help with that groupchat thing
+You can check how people are connected. Have it so that once two people are connected (the first two)
+the game begins. Both will be instructed to enter the username.
+
+and then the other rules come from the basic RPS game using if statements. You could check one from the previous code.
+
+We Just went over in class today about storing data via firebase so if he is asking for the wins and losses to be stored
+, then I guess that's where it will go.
+
+You can also have user names with that, Do not start the game until username1 and username2 both have a value. and then
+start the brigade of clicks.
+
+create on click functions for the decision but once again, these are things that have to appear in the DOM after something else, So I have a feeling
+that if you make a bunch of nested on click functions that way the game has to travel between clicks. It being one persons, turn,
+then turning it into another persons turn, then checking the results. The submit button for the groupchat cannot be within
+the click functions This is probably one of the first things, given a css fixed position, that stick to the screen from start to finish
+
+When we were doing the basic html version, you would press something and instantly, the computer would pick something random through
+a previously defined array. Thats the part we're removing.
+
+Plus how exactly are we suppose to have two users play the game at the same time? by making a separate channel? questions... 
+Too much knowledge, lack there of.
+
+Sidenote, learn to work as a team
