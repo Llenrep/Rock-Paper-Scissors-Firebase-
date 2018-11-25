@@ -6,6 +6,18 @@ span{
     color: white;
 }
 
-#box-container{
-    border: 0.7px solid black;
+#groupchat{
+    border: 1.8px solid black;
+    border-radius: 10px;
+}
+
+.middle-left {
+    color: blue;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    
+}
+
+.middle-right {
+    color: red;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }

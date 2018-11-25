@@ -1,179 +1,182 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Rock Paper Scissors</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script href="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Rock Paper Scissors</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous">
+        <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 
-</head>
+    </head>
 
-<body>
-    <center>
-        <font size="2" color="white"><ins>Welcome to Rock Paper Scissors! Play Now!</ins></font>
-    </center>
-    <hr>
+    <body>
+        <center>
+            <font size="2" color="white"><ins>Welcome to Rock Paper Scissors! Play Now!</ins></font>
+        </center>
+        <hr>
 
-    <span id="Directions">
-        <ol>
-            <li>This is a basic game of rock paper scissors.</li>
-            <li>This requires two users (the first two to access the game will play with eachother.</li>
-            <li>There will be three objects you can click (Rock, Paper, or Scissors).</li>
-            <li>Player 1 picks first, and Player 2 picks second.</li>
-            <li>The screen with then show both choices and who won after both players have chosen their objects.</li>
-        </ol>
-    </span>
-    <hr>
-    <div id="container">
-        <div class="row">
+        <span id="Directions">
+            <ol>
+                <li>This is a basic game of rock paper scissors.</li>
+                <li>This requires two users (the first two to access the game will play with eachother.</li>
+                <li>There will be three objects you can click (Rock, Paper, or Scissors).</li>
+                <li>Player 1 picks first, and Player 2 picks second.</li>
+                <li>The screen with then show both choices and who won after both players have chosen their objects.</li>
+            </ol>
+        </span>
+        <hr>
+        <div id="container">
+            <div class="row">
 
-            <div class="col-md-4">
-                <center>
-                    <div id="Player-1">
-                        <div class="card" style="width: 18rem;">
+                <div class="col-md-4">
+                    <center>
+                        <div id="Player-1">
+                            <div class="card" style="width: 18rem;">
 
-                            <img class="card-img-top" src="assets/images/question mark.png" width="100px" height="100px">
+                                <img class="card-img-top" src="assets/images/question mark.png" width="100px" height="100px">
+                                <hr>
+                                <span id="username1">
+                                    <font color="black">username</font>
+                                </span><br>
+                                <span id="user1Choice">
+                                    <font color="black">Player 1 Chooses: </font>
+                                </span>
+                                <!--This part is going to use JS to replace text with userchoice being a variable decided by a button click-->
+
+                                <div class="card-body">
+                                    <p class="card-text"><ins>Please Choose Rock, Paper, Or Scissors</ins></p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button id="Rock-1"><img src="assets/images/Rock-Transparent.png" width="50px"
+                                                height="50px"></button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button id="Paper-1"><img src="assets/images/Paper-Transparent.png" width="50px"
+                                                height="50px"></button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button id="Scissors-1"><img src="assets/images/Scissors-Transparent.png" width="50px"
+                                                height="50px"></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <span>
+                            <div id="path">Welcome</div>
                             <hr>
-
-                            <span id="user1Choice">
-                                <font color="black">Player 1 Chooses: </font>
-                            </span>
-                            <!--This part is going to use JS to replace text with userchoice being a variable decided by a button click-->
-
-                            <div class="card-body">
-                                <p class="card-text"><ins>Please Choose Rock, Paper, Or Scissors</ins></p>
+                            <div class="middle-left">
+                                <div id="p1wins">Player 1 Wins: </div><br>
+                                <div id="p1losses">Player 1 Losses: </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <button id="Rock-1"><img src="assets/images/Rock-Transparent.png" width="50px"
-                                            height="50px"></button>
-                                </div>
-                                <div class="col-md-4">
-                                    <button id="Paper-1"><img src="assets/images/Paper-Transparent.png" width="50px"
-                                            height="50px"></button>
-                                </div>
-                                <div class="col-md-4">
-                                    <button id="Scissors-1"><img src="assets/images/Scissors-Transparent.png" width="50px"
-                                            height="50px"></button>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </center>
-
-
-            </div>
-
-            <div class="col-md-4">
-                <center>
-                    <span>
-                        <div id="p1wins">1</div><br>
-                        <div id="p1losses">2</div>
-                        <hr>
-                        <div id="p2wins">3</div><br>
-                        <div id="p2losses">4</div>
-                    </span><br>
-                </center>
-
-            </div>
-
-            <div class="col-md-4">
-                <center>
-                    <div id="Player-2">
-                        <div class="card" style="width: 18rem;">
-
-                            <img class="card-img-top" src="assets/images/question mark.png" width="100px" height="100px">
                             <hr>
-
-                            <span id="user2Choice">
-                                <font color="black">Player 2 Chooses: </font>
-                            </span>
-                            <!--This part is going to use JS to replace text with userchoice being a variable decided by a button click-->
-
-                            <div class="card-body">
-                                <p class="card-text"><ins>Please Choose Rock, Paper, Or Scissors</ins></p>
+                            <div class="middle-right">
+                                <div id="p2wins">Player 2 Wins: </div><br>
+                                <div id="p2losses">Player 2 Losses: </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <button id="Rock-2"><img src="assets/images/Rock-Transparent.png" width="50px"
-                                            height="50px"></button>
+                        </span><br>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <div id="Player-2">
+                            <div class="card" style="width: 18rem;">
+
+                                <img class="card-img-top" src="assets/images/question mark.png" width="100px" height="100px">
+                                <hr>
+                                <span id="username2">
+                                    <font color="black">username</font>
+                                </span><br>
+                                <span id="user2Choice">
+                                    <font color="black">Player 2 Chooses: </font>
+                                </span>
+                                <!--This part is going to use JS to replace text with userchoice being a variable decided by a button click-->
+
+                                <div class="card-body">
+                                    <p class="card-text"><ins>Please Choose Rock, Paper, Or Scissors</ins></p>
                                 </div>
-                                <div class="col-md-4">
-                                    <button id="Paper-2"><img src="assets/images/Paper-Transparent.png" width="50px"
-                                            height="50px"></button>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button id="Rock-2"><img src="assets/images/Rock-Transparent.png" width="50px"
+                                                height="50px"></button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button id="Paper-2"><img src="assets/images/Paper-Transparent.png" width="50px"
+                                                height="50px"></button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button id="Scissors-2"><img src="assets/images/Scissors-Transparent.png" width="50px"
+                                                height="50px"></button>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <button id="Scissors-2"><img src="assets/images/Scissors-Transparent.png" width="50px"
-                                            height="50px"></button>
-                                </div>
+
                             </div>
 
                         </div>
-
-                    </div>
-                </center>
-
-            </div>
-
-        </div>
-        <font color="white">
-            <hr>
-        </font>
-
-
-        <div class="row">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-6">
-                <center>
-            <div class="container">
-                <div class="panel panel-primary">
-                    <span>
-                        <div class="panelheading">Web Based Firebase Chat Application</div>
-                        <div class="panel-body">
-                            <p>Hello There!</p>
-                            <p>Hi Sir!</p>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Message here...">
-                            </div>
-                            <button type="submit" class="btn btn-default">Send</button>
-                        </div>
-                    </span>
+                    </center>
                 </div>
             </div>
-            </center>
-        </div>
-        <div class="col-md-3">
+
+            <font color="white">
+                <hr>
+            </font>
+
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6">
+                    <center>
+                        <div class="container">
+                            <div class="panel panel-primary" id="groupchat">
+                                <span>
+                                    <div class="panelheading">Talk or Something or Whateva</div>
+                                    <hr>
+                                    <div class="panel-body">
+                                        <span><p id="body-of-text"></p></span>
+                                        <div class="form-group">
+                                            <input id="textusername" type="text" class="form-control" placeholder="User Name">
+                                            <input id="textmessage" type="text" class="form-control" placeholder="Message here...">
+                                        </div>
+                                        <button type="submit" class="btn btn-default" id="textsubmit">Full Send</button>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+                
+                <div class="col-md-3">
+                </div>
+            </div>
 
         </div>
 
-    </div>
+        <!-- Split -->
+        <div>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+                <script src="assets/javascript/app.js"></script>
+        </div>
 
-
-
-    </div>
-
-    <!-- Split -->
-    <div>
-        <script src="assets/javascript/app.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-    </div>
-
-</body>
+    </body>
 
 </html>
