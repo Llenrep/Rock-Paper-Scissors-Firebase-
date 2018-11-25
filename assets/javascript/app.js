@@ -22,6 +22,30 @@ function writeUserData(username, message){
 };
 
 
+var connectionsRef = database.ref("/connections");
+var connectedRef = database.ref(".info/connected");
+
+connectedRef.on("value", function(snap) {
+
+    // If they are connected..
+    if (snap.val()) {
+  
+      // Add user to the connections list.
+      var con = connectionsRef.push(true);
+  
+      // Remove user from the connection list when they disconnect.
+      con.onDisconnect().remove();
+    }
+});
+
+connectionsRef.on("value", function(snapshot) {
+    // Display the viewer count in the html.
+    // The number of online users is the number of children in the connections list.
+    $("#people-connected").html("<h1> Connected Users: " + snapshot.numChildren() + "</h1>");
+});
+
+
+
 $(document).ready(function(){
 
     console.log("ready");
