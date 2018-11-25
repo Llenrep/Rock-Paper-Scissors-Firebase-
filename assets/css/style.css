@@ -21,3 +21,8 @@ span{
     color: red;
     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
+
+#people-connected {
+    margin: 50px 0px 0px 0px;
+    text-shadow: 0 0 3px #000, 0 0 5px #444;
+}
