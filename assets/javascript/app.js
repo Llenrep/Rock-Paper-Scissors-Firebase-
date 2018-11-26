@@ -1,3 +1,5 @@
+var currentTime = moment().format("MMMM Do YYYY, h:mm:ss a")
+
 var config = {
     apiKey: "AIzaSyAlFxT_aEDX98WEBOuEgBNQgYJaSCrMF3E",
     authDomain: "rpschat-51f26.firebaseapp.com",
@@ -17,7 +19,8 @@ var message = "";
 function writeUserData(username, message) {
     database.ref('users/' + username).push().set({
         // username: name,
-        message: message
+        message: message,
+        time: currentTime
     });
 };
 
@@ -44,27 +47,34 @@ connectionsRef.on("value", function (snapshot) {
     $("#people-connected").html("<font color='white' size='2'><h6> Connected Users: " + snapshot.numChildren() + "</h6></font>");
 });
 
+function updateTime(){
+    $("#currentTime").html(moment().format('MMMM Do YYYY, h:mm:ss a')); 
+}
+
+
 var player1Choice;
 var player2Choice;
 
 
 
 $(document).ready(function () {
+    setInterval(updateTime, 1000);
     //section for the group chat, I only want to A. have a server store those messages, nothing more and B. Display the message sent on the actual site for everyone
     $("#textsubmit").on("click", function () {
+        event.preventDefault();
 
         user = $("#textusername").val().trim();
        
         message = $("#textmessage").val().trim();
 
-        $("#body-of-text").append($("<p>").text(user + " said: " + "'" + message + "'"));
+        $("#body-of-text").append($("<p>").text(user + " said: " + "'" + message + "'" + " :-: Time: " + currentTime));
 
         writeUserData(user, message);
         
         localStorage.setItem("user", user);
 
         localStorage.setItem("text", message);
-        
+
     })
     //
     //--------------------------------------------------------

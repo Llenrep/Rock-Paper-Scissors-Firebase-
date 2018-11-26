@@ -26,3 +26,12 @@ span{
     margin: 50px 0px 0px 0px;
     text-shadow: 0 0 3px #000, 0 0 5px #444;
 }
+
+#currentTime {
+    border: 1.8px dotted white;
+    border-radius: 10px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px;
+    float: right;
+
+}
